@@ -5,7 +5,7 @@ def detect_duplicate(l):
             li.append(l[x])
 
     return li
-print("Enter the list to be chacked for duplicates")
+print("Enter the list to be checked for duplicates")
 l = [int(x) for x in input().split()]
 li = detect_duplicate(l)
 print("List with no duplicates")
