@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>
+            Student Portal
+        </title>
+        <h2>Student Portal</h2>
+    </head>
+
+    <script>
+        function validate()
+        {
+            var usn = document.getElementById('usn').value;
+            var usn_format = /^[1][M][S][0-9][0-9][A-Z][A-Z][0-9][0-9][0-9]$/
+            var date = document.getElementById('dob').value;
+            var date_format = /^(([0-2][0-9])|([3][0-2]))[/][0](([1-9])| [1][0-2])[/][1][9][9][2-8]$/
+            if (!usn_format.test(usn))
+            {
+                alert('Enter valid USN');
+                return false;
+            }
+            if (!date_format.test(date))
+            {
+                alert('Enter valid date!');
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <body>
+        
+        <form action="{{url_for('server')}}" method="POST" onsubmit="return validate()">
+            USN: <input type="text" name="usn" id="usn" required>
+            DOB: <input type="text" name="dob" id="dob" required>
+            M1 :<input type="number" name="m1" min="0" max="100" required>
+            C1 :<input type="number" name="c1" min ="0" max="4" required>
+            M2 :<input type="number" name="m2" min="0" max="100" required>
+            C2 :<input type="number" name="c2" min ="0" max="4" required>
+            M3 :<input type="number" name="m3" min="0" max="100" required>
+            C3 :<input type="number" name="c3" min ="0" max="4" required>
+            M4 :<input type="number" name="m4" min="0" max="100" required>
+            C4 :<input type="number" name="c4" min ="0" max="4" required>
+            <input type="submit" value="Submit" id="sub" >
+        </form>
+
+        <p>{{msg}}</p>
+
+    </body>
+</html>

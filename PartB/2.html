@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>
+            Cars
+        </title>
+        <style>
+                table {
+                    text-align: center;
+                    width: 100%;
+                }
+                td {
+                        font-size: xx-large;
+                }
+                th {
+                    font-size: x-large;
+                    background-color: #4CAF50;
+                    color: white;
+                }
+                th:hover {
+                    background-color: #4CA;
+                }
+            </style>
+    </head>
+    <h2>Cars</h2>
+
+    <body>
+        <table>
+            <tr id="menu"></tr>
+        </table>
+
+        <table>
+            <tr><td>Name</td><td id="name" height="100px"></td></tr>
+            <tr><td>Price</td><td id="price" height="100px"></td></tr>
+            <tr><td>Year</td><td id="year" height="100px"></td></tr>
+            <tr><td>Image</td><td> <img id="image" height="100px"></td></tr>        
+        </table>
+
+        <p id="i"></p>
+
+        <script>
+            var li = [
+                {
+                    "name": "Tesla Model S",
+                    "price": "$39000",
+                    "year": "2017",
+                    "image": "s.png"
+                },
+                {
+                    "name": "Tesla Model 3",
+                    "price": "$59000",
+                    "year": "2017",
+                    "image": "3.png"
+                },
+                {
+                    "name": "Tesla Model X",
+                    "price": "$69000",
+                    "year": "2017",
+                    "image": "x.png"
+                }
+            ];
+
+            li.forEach(function(x){         
+               listElement = document.createElement("th");
+                listElement.onmouseover = function() {
+                    document.getElementById('name').innerHTML = x['name'];
+                    document.getElementById('year').innerHTML = x['year'];
+                    document.getElementById('price').innerHTML = x['price'];
+                    document.getElementById('image').src = x['image'];
+                };
+                listElement.innerHTML = x['name'];
+                document.getElementById('menu').appendChild(listElement);
+            });
+        </script>
+    </body>
+</html>
