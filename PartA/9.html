@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>
+            Pizza Shop
+        </title>
+    </head>
+
+    <h2 onmouseover="showImg()" onmouseout="blockImg()">
+        Pizza Shop
+    </h2>
+    <h3>Varities of Pizza</h3>
+    <ul id="ul">
+        <li>Regular Margharita</li>
+    </ul>
+
+    <form action="">
+        Add another variety: <input type="text" id="v">
+        <input type="button" name="but" id="but" onclick="return add()">
+    </form>
+
+    <br><br>
+    <img src="pizza.png" alt="Pizza" style="visibility:hidden;" id="pizza" width="100px" height="100px">
+    <script>
+        function showImg()
+        {
+            document.getElementById('pizza').style.visibility = "visible";
+        }
+
+        function blockImg()
+        {
+            document.getElementById('pizza').style.visibility = "hidden";
+        }
+
+        function add()
+        {
+            var v = document.getElementById('v').value;
+            if (v=="")
+            {
+                alert("Please enter the name for the variety");
+                return false;
+            }
+
+            var ul = document.getElementById('ul');
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(v));
+            ul.appendChild(li);
+        }
+    </script>
+
+</html> 
