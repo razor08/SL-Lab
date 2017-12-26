@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>
+            Marks Calculator
+        </title>
+        <h2>
+            Marks Calculator
+        </h2>
+    </head>
+
+    <script>
+        function validate()
+        {
+            var m1 = document.getElementById('m1').value;
+            var m2 = document.getElementById('m2').value;
+
+            if (m1=="" || m2 =="")
+            {
+                alert("Please enter marks for subjects!");
+                return false;
+            }
+
+            m1 = parseInt(m1);
+            m2 = parseInt(m2);
+            if (m1< 0 || m2 <0)
+            {
+                alert("Marks cannot be negative!");
+                return false;
+            }
+
+            if (m1> 100 || m2 >100)
+            {
+                alert("Marks cannot be greater than 100!");
+                return false;
+            }
+
+            return true;
+
+        }
+
+        function grade(mark)
+        {
+            if (mark >= 90) 
+                return 'S';
+            else if (mark >= 80) 
+                return 'A';
+            else if (mark >= 70) 
+                return 'B';
+            else if (mark >= 50) 
+                return 'C';
+            else if (mark >= 40) 
+                return 'D';
+            else if (mark < 40) 
+                return 'F';
+        }
+
+        function calc()
+        {
+            if (validate() == true) {
+            var m1 = parseInt(document.getElementById('m1').value);
+            var m2 = parseInt(document.getElementById('m2').value);
+            var m3  = m1 + m2;
+            document.getElementById('x1').innerHTML = "Grade: " + grade(m1);
+            document.getElementById('x2').innerHTML = "Grade: " + grade(m2);
+            document.getElementById('total').innerHTML = "Total: " + m3+"/200";
+            }
+            return false;
+        }
+    </script>
+
+    Marks 1 :<input type="number" id="m1" onchange="return calc()"><p id="x1"></p><br>
+    Marks 2 :<input type="number" id="m2" onchange="return calc()"><p id="x2"></p><br>
+    <p id="total"></p>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>
+            Bakery Shop
+        </title>
+    </head>
+
+    <h2>
+        Bakery Shop
+    </h2>
+    <form action="">
+        <label for="cookie">
+            <img src="cookie.png" alt="Cookie" width="100px" height="100px"/>
+        </label>
+        Cookie (Rs.50)<input type="radio" name="item" id="cookie" onselect="return calc()"><br>
+
+        <label for="bread">
+                <img src="bread.png" alt="Bread" width="100px" height="100px"/>
+            </label>
+            Bread (Rs.30)<input type="radio" name="item" id="bread" onselect="return calc()"><br>
+        
+        Quantity: <input type="number" id="q" onchange="return calc()"><br><br>
+        <input type="button" value="Submit" id="submit" onclick="return calc()">
+    </form>
+    <p id="res"></p>
+    <script>
+        function validate()
+        {
+            var q = document.getElementById('q').value;
+
+            if (q=="")
+            {
+                alert("Please enter the quantity for your item!");
+                return 0;
+            }
+
+            q = parseInt(q);
+            if (q<0)
+            {
+                alert("Quantity cannot be negative!");
+                return 0;
+            }
+
+            return q;
+        }
+
+        function calc()
+        {
+            var q = validate();
+            if (q!=0)
+            {
+                if (document.getElementById('cookie').checked)
+                {
+                    document.getElementById('res').innerHTML = "Total Price for cookies: " + q*50;
+                }
+                if (document.getElementById('bread').checked)
+                {
+                    document.getElementById('res').innerHTML = "Total Price for bread: " + q*50;
+                } 
+
+            }
+        }
+    </script>
+</html>

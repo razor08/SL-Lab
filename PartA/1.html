@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head
+    ><title>
+        Add / Multiply
+    </title>
+
+    <h2>
+        Add / Multiply
+    </h2>
+
+    <script>
+        function validate()
+        {
+            var n1 = document.getElementById('n1').value;
+            var n2 = document.getElementById('n2').value;
+
+            if(n1=="" || n2=="")
+            {
+                alert("Enter numbers");
+                return false;
+            }
+
+            n1 = parseInt(n1);
+            n2 = parseInt(n2);
+
+            if (n1< 0 || n2<0)
+            {
+                alert("Numbers cannot be negative");
+                return false;
+            }
+
+            return true;
+        }
+
+        function add()
+        {
+            if (validate() == true) {
+            var n1 = document.getElementById('n1').value;
+            var n2 = document.getElementById('n2').value;
+
+            n1 = parseInt(n1);
+            n2 = parseInt(n2);
+
+            document.getElementById('res').innerHTML = n1+n2;
+            return true;
+            }
+            return false;
+        }
+
+        function mul()
+        {
+            if (validate() == true) {
+            var n1 = document.getElementById('n1').value;
+            var n2 = document.getElementById('n2').value;
+
+            n1 = parseInt(n1);
+            n2 = parseInt(n2);
+
+            document.getElementById('res').innerHTML = n1*n2;
+            return true;
+            }
+            return false;
+        }
+    </script>
+
+    Number 1 :<input type="number" name="n1" id="n1" onchange="return validate()" required><br>
+    Number 2 :<input type="number" name="n2" id="n2" onchange="return validate()" required><br>
+    <input type = "button" value = "Add" onclick="return add()">
+    <input type = "button" value = "Multiply" onclick="return mul()">
+    <p id="res"></p>
+</head>
+</html>
