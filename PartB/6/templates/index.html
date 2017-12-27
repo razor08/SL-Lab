@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Bank ATM</title>
+    </head>
+    <h2>Bank ATM</h2>
+    <h3><b>Balance: {{balance}}</b></h3>
+    <body>
+        <form action="/" method="POST">
+            <input type="number" name="amount" min = "0" max="10000" required> <br>
+            <input type="submit" id="Withdraw" name="action" value="Withdraw" onclick = "return validate(this)">
+            <input type="submit" id="Weposit" name="action" value="Deposit" onclick = "return validate(this)"> 
+        </form>
+        <br><br>
+        <h3>Transcations left: {{trans}}</h3>
+        <h3>{{msg}}</h3>
+    </body>
+</html>
